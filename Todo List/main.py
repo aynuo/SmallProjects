@@ -1,12 +1,13 @@
 from function import read_todo,write_todo
 import PySimpleGUI as psg
 
-
+#create application objects
 app_lable = psg.Text("have a great dat!")
 app_lable_name = psg.Text("Todo list")
 todo_input = psg.InputText(tooltip="Enter a Todo", key="todo")
 button_add = psg.Button("add a Todo")
 
+#application action
 win = psg.Window("Todo List", layout=[[app_lable],[app_lable_name],[todo_input,button_add]])
 while True:
     event, value = win.read()
