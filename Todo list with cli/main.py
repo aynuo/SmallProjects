@@ -1,12 +1,17 @@
 todos = []
 
+with open("todos.txt", "r") as file:
+    file.readlines()
+
 while True:
     user_action = input("--enter add, show, edit, complete or exit--? ").strip(" ")
 
     match user_action:
         case "add":
-            todo = input("Enter a new todo: ")
+            todo = input("Enter a new todo: ") + "\n"
             todos.append(todo)
+            with open("todos.txt", "w") as write_file:
+                write_file.writelines(todos)
 
         case "edit":
             number = int(input("enter your todo number for edit>> ")) - 1
