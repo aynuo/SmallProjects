@@ -17,9 +17,10 @@ while True:
             todos[number] = new_todo
 
         case "show":
-            for index, todo in enumerate(todos):
+            new_todos = [item.strip("\n") for item in todos]
+            for index, item in enumerate(new_todos):
                 index = index + 1
-                print(f"{index} => {todo}", sep="")
+                print(f"{index} => {item}")
 
         case "complete":
             done_number = int(input("enter your todo number to delete:")) - 1
