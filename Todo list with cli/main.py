@@ -1,7 +1,5 @@
-todos = []
-
-with open("todos.txt", "r") as file:
-    file.readlines()
+with open("todos.txt", "r") as todos:
+    todos = todos.readlines()
 
 while True:
     user_action = input("--enter add, show, edit, complete or exit--? ").strip(" ")
@@ -21,7 +19,7 @@ while True:
         case "show":
             for index, todo in enumerate(todos):
                 index = index + 1
-                print(f"{index} => {todo}")
+                print(f"{index} => {todo}", sep="")
 
         case "complete":
             done_number = int(input("enter your todo number to delete:")) - 1
