@@ -1,5 +1,5 @@
-with open("todos.txt", "r") as todos:
-    todos = todos.readlines()
+with open("todos.txt", "r") as file:
+    todos = file.readlines()
 
 while True:
     user_action = input("--enter add, show, edit, complete or exit--? ").strip(" ")
