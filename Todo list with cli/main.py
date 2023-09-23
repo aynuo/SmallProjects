@@ -5,7 +5,7 @@ while True:
     user_action = input("--enter add, show, edit, complete or exit--? ").strip(" ")
 
     if "add" in user_action:
-        todo = input("Enter a new todo: ") + "\n"
+        todo = user_action[4:] + "\n"
         todos.append(todo)
         with open("todos.txt", "w") as write_file:
             write_file.writelines(todos)
