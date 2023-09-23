@@ -24,4 +24,8 @@ for char in password:
         is_upper = True
 result.append(is_upper)
 
-print(all(result))
+# show result
+if all(result) == "True":
+    print("Strong Password ")
+else:
+    print("Week Password")
