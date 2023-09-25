@@ -21,7 +21,6 @@ while True:
             print("invalid command")
             continue
 
-
     elif user_action.startswith("show"):
         new_todos = [item.strip("\n") for item in todos]
         for index, item in enumerate(new_todos):
@@ -29,10 +28,14 @@ while True:
             print(f"{index} => {item}")
 
     elif user_action.startswith("complete"):
-        done_number = int(user_action[9]) - 1
-        todos.pop(done_number)
-        with open("todos.txt", "w") as write_complete:
-            write_complete.writelines(todos)
+        try:
+            done_number = int(user_action[9]) - 1
+            todos.pop(done_number)
+            with open("todos.txt", "w") as write_complete:
+                write_complete.writelines(todos)
+        except IndexError:
+            print("There is no item with this number.")
+            continue
 
     elif user_action.startswith("exit"):
         break
