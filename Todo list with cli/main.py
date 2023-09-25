@@ -19,7 +19,7 @@ while True:
                 write_edit.writelines(todos)
         except ValueError:
             print("invalid command")
-            user_action = input("--enter add, show, edit, complete or exit--? ").strip(" ")
+            continue
 
 
     elif user_action.startswith("show"):
