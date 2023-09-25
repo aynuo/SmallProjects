@@ -11,11 +11,16 @@ while True:
             write_file.writelines(todos)
 
     elif user_action.startswith("edit"):
-        number = int(user_action[5]) - 1
-        new_todo = input("enter a new todo: ") + "\n"
-        todos[number] = new_todo
-        with open("todos.txt", "w") as write_edit:
-            write_edit.writelines(todos)
+        try:
+            number = int(user_action[5]) - 1
+            new_todo = input("enter a new todo: ") + "\n"
+            todos[number] = new_todo
+            with open("todos.txt", "w") as write_edit:
+                write_edit.writelines(todos)
+        except ValueError:
+            print("invalid command")
+            user_action = input("--enter add, show, edit, complete or exit--? ").strip(" ")
+
 
     elif user_action.startswith("show"):
         new_todos = [item.strip("\n") for item in todos]
