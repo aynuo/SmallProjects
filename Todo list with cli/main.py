@@ -1,3 +1,8 @@
+def write_todos(todos_arg):
+    with open("todos.txt", mode="w") as file_local:
+        file_local.writelines(todos_arg)
+
+
 # open todos txt file
 with open("todos.txt", "r") as file:
     todos = file.readlines()
@@ -10,8 +15,7 @@ while True:
     if user_action.startswith("add"):
         todo = user_action[4:] + "\n"
         todos.append(todo)
-        with open("todos.txt", "w") as write_file:
-            write_file.writelines(todos)
+        write_todos(todos)
 
     # edit operation
     elif user_action.startswith("edit"):
@@ -19,8 +23,7 @@ while True:
             number = int(user_action[5]) - 1
             new_todo = input("enter a new todo: ") + "\n"
             todos[number] = new_todo
-            with open("todos.txt", "w") as write_edit:
-                write_edit.writelines(todos)
+            write_todos(todos)
         except ValueError:
             print("invalid command")
             continue
@@ -37,8 +40,7 @@ while True:
         try:
             done_number = int(user_action[9]) - 1
             todos.pop(done_number)
-            with open("todos.txt", "w") as write_complete:
-                write_complete.writelines(todos)
+            write_todos(todos)
         except IndexError:
             print("There is no item with this number.")
             continue
