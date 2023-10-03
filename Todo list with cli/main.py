@@ -1,6 +1,12 @@
+from function import write_todos
+import time
+
 # open todos txt file
 with open("todos.txt", "r") as file:
     todos = file.readlines()
+
+time_string = time.strftime("%m/%d/%Y , %H:%M:%S")
+print(time_string)
 
 while True:
     # ask for operation
