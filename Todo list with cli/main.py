@@ -1,5 +1,3 @@
-from function import write_todos
-
 # open todos txt file
 with open("todos.txt", "r") as file:
     todos = file.readlines()
